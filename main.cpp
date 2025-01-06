@@ -2,36 +2,60 @@
 #include <string>
 using namespace std;
 
-class Car{
+class Car {
+    private: 
+        float price;
     public :
-//attributes 
+        // attributes
+        string make;
+        string model;
 
-string make;
-string model;
-float price;
+       
+        float apply_discount(float discount_percentage) {
+            return price * (1 - discount_percentage / 100);
+        }
 
-//methods
+        // SETTER FUNCTION
+        void set_price(float p) {
+            price = p;
+        }
 
-int apply_discount(float price)
-}
-int main(
+        // GETTER FUNCTION
+        float get_price() {
+            return price;
+        }
+};
+
+int main() {
+
+    Car car1, car2, car3, car4;
+
+    car1.make = "Toyota";
+    car1.model = "Corolla";
+    car1.set_price(1000000);
+
     
-    Car car1;
-    Car car2;
-    Car car3;
-    Car car4;
-    
-    
-    
-   car1.make= Toyota;
-   car1.model= Nissan;
-   car1.price = 1000000;
-   
-   car2.make = Hyundai ;
-   car2.make = Santro;
-   car2.price = 800000;
-   
-   cout<<car1.name;
-   //likewise print all the attributes of every object in the Car class //
+    car2.make = "Hyundai";
+    car2.model = "Santro";
+    car2.set_price(800000);
+
+
+    car3.make = "Ford";
+    car3.model = "Focus";
+    car3.set_price(1200000);
+
+
+    car4.make = "Honda";
+    car4.model = "Civic";
+    car4.set_price(1100000);
+
+    // Print details of all cars
+    cout << "Car 1: " << car1.make << " " << car1.model << ", Price: " << car1.get_price() << endl;
+    cout << "Car 2: " << car2.make << " " << car2.model << ", Price: " << car2.get_price() << endl;
+    cout << "Car 3: " << car3.make << " " << car3.model << ", Price: " << car3.get_price() << endl;
+    cout << "Car 4: " << car4.make << " " << car4.model << ", Price: " << car4.get_price() << endl;
+
+
+
     return 0;
-    )
+}
