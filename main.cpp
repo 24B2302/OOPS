@@ -24,15 +24,52 @@ class Car {
         float get_price() {
             return price;
         }
+        
+        void get_info(){
+            cout<<"Name: "<<make<<", model : "<<model;
+            cout<<", price : "<<price<<endl;
+        }
+};
+
+class ElectricCar : public Car{
+    public : 
+float battery_range;
+
+void set_battery_range(float capacity) {
+            battery_range = capacity;
+        }
+
+        void get_info() {
+            Car::get_info(); 
+            cout << ", Battery Range: " << battery_range << endl;
+        }
+
+};
+
+class SportsCar : public Car{
+    public: 
+float top_speed;
+    
+void topspeed(float top__speed) {
+            top_speed = top__speed;
+        }
+
+        void get_info() {
+            Car::get_info(); 
+            cout << ", TOP SPEED: " << top_speed << endl;
+        }
+    
 };
 
 int main() {
 
     Car car1, car2, car3, car4;
+    ElectricCar electriccar;
 
     car1.make = "Toyota";
     car1.model = "Corolla";
     car1.set_price(1000000);
+    
 
     
     car2.make = "Hyundai";
@@ -48,14 +85,17 @@ int main() {
     car4.make = "Honda";
     car4.model = "Civic";
     car4.set_price(1100000);
+    
+    electriccar.make= "Tesla";
+    electriccar.model = "ferron";
+    electriccar.set_price(1000000);
+    electriccar.set_battery_range(15000);
 
     // Print details of all cars
-    cout << "Car 1: " << car1.make << " " << car1.model << ", Price: " << car1.get_price() << endl;
-    cout << "Car 2: " << car2.make << " " << car2.model << ", Price: " << car2.get_price() << endl;
-    cout << "Car 3: " << car3.make << " " << car3.model << ", Price: " << car3.get_price() << endl;
-    cout << "Car 4: " << car4.make << " " << car4.model << ", Price: " << car4.get_price() << endl;
-
-
-
+    car1.get_info();
+    car2.get_info();
+    car3.get_info();
+    car4.get_info();
+    electriccar.get_info();
     return 0;
 }
